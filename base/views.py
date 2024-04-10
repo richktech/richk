@@ -176,11 +176,13 @@ def admin_view(request):
         name = request.POST.get("name")
         price = request.POST.get("price")
         image = request.FILES.get("image")
+        speed = request.POST.get("speed")
         try:
             Car.objects.create(
             name=name,
             price=price,
-            image = image
+            image = image,
+            speed= speed
             )
         except:
             messages.error(request, "something went wrong")    
