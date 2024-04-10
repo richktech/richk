@@ -1,0 +1,60 @@
+{% extends "layout.html" %}
+{% load humanize %}
+{% block content %}
+<div class ="custom-grid">
+<!-- navbar  -->
+<div>
+    {% include "navbar.html" %}
+</div>
+<!-- end navbar  -->
+
+    <!-- sidebar  -->
+  {% include "sidebar.html" %}
+    <!-- sidebar  -->
+
+    <!-- main  -->
+    <div class="overflow-scroll container py-4">
+        <p class="spaced mb-3">CURRENT ORDERS MADE</p>
+        {% if orders %}
+        
+        <table class="w-100">
+            <tr class="bg-darkblue text-light">
+                <td class="px-3 py-2">car</td>
+                <td>Bill</td>
+                <td>Client</td>
+                <td>Date</td>
+                <td></td>
+                <td></td>
+            </tr>
+            {% for order in orders %}
+            <tr class="bg-pale">
+                <td class="px-3">{{order.car.name}}</td>
+                <td>{{order.car.price|intcomma}}</td>
+                <td class="px-3 py-3">{{order.client.username}}</td>
+                <td>{{order.date|timesince}} ago</td>
+                <td class=" text-light text-light text-center m-2">
+                    <a href="{% url 'approve' order.id %}" class="nav-link">
+                        <button class="btn btn-outline-success">approve</button>
+                    </a>
+                </td>
+                <td class=" text-light text-light m-2">
+                    <a href="{% url 'reject' order.id %}" class="nav-link">
+                        <button class="btn btn-outline-danger">reject</button>
+                    </a>
+                </td>
+                
+            </tr>
+            {% endfor %}
+        </table>
+        {% else %}
+        <h3>
+            No orders found
+        </h3>
+        {% endif %}
+    </div>
+    <!-- end main  -->
+    {% include "modal.html" %}
+</div>
+
+
+{% endblock content %}

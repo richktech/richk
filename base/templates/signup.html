@@ -1,0 +1,66 @@
+{% extends "layout.html" %}
+
+{% load static %}
+
+{% block content %}
+
+<div class="d-flex align-items-center justify-content-center" style="width: 100vw; height: 100vh;">
+    <div class="w-30 d-flex align-items-center justify-content-center flex-column center bg-white p-5 rounded shadow-lg">
+
+        <!-- logo  -->
+        <img src="{% static 'svgs/logo.svg' %}" class="logo"/>
+        <!-- end logo  -->
+    
+        <!-- welcome  -->
+        <p class="my-4">Lets Get You Started</p>
+        <!-- end welcome  -->
+        
+        <form action ="" method="post" class="rounded bg-darkblue p-5 mt-4 text-light w-100">
+            {% csrf_token %}
+            <!-- email input  -->
+            <div class="d-flex border-1 px-4 py-1 rounded-edges align-items-center ">
+                <!-- email logo  -->
+                <img src="{% static 'svgs/email.svg' %}" alt="" class="mr">
+                <!-- end email logo  -->
+                
+                <input required type="text" name="username" placeholder="email" class="border-0 bg-none text-light">
+            </div>
+            <!-- end email input  -->
+    
+            <!-- password input  -->
+            <div class="d-flex mt-3 border-1 px-4 py-1 rounded-edges align-items-center ">
+                <!-- email logo  -->
+                <img src="{% static 'svgs/password.svg' %}" alt="" class="mr">
+                <!-- end email logo  -->
+                
+                <input required type="password" name="password1" placeholder="password" class="border-0 bg-none text-light">
+            </div>
+            <!-- end password input  -->
+            <!-- password confirm input  -->
+            <div class="d-flex mt-3 border-1 px-4 py-1 rounded-edges align-items-center ">
+                <!-- email logo  -->
+                <img src="{% static 'svgs/password.svg' %}" alt="" class="mr">
+                <!-- end email logo  -->
+                
+                <input required name="password2" type="password" placeholder="confirm password" class="border-0 bg-none text-light">
+            </div>
+            <!-- end password confirm input  -->
+            
+            
+            <!-- submit button  -->
+            <button type="submit" class="btn mt-3 linear-gradient-2 w-100 py-1 border-0 text-light">
+                <span class="mr-lg">Signup</span>
+            </button>
+            {% if messages %}
+            {% for msg in messages %}
+            <div class="my-3 bg-error">
+                {{msg}}
+            </div>
+            {% endfor %}
+            {% endif %}
+            <!-- end submit button  -->
+        </form>
+        <p class="mt-3 d-flex align-items-center">Already have an account, <a href="{% url 'login-page' %}" class="nav-link text-primary">&nbsp; Signin</a></p>
+    </div>
+</div>
+{% endblock content %}

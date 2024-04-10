@@ -1,0 +1,49 @@
+{% extends "layout.html" %}
+{% load static %}
+{% block content %}
+<div class ="custom-grid">
+    <div>
+<!-- navbar  -->
+{% include "navbar.html" %}
+<!-- end navbar  -->
+    </div>
+
+    <!-- sidebar  -->
+   <div class="container p-4">
+    {% include "sidebar.html" %}
+   </div>
+    <!-- sidebar  -->
+
+
+    <!-- main  -->
+    <div class="overflow-scroll container py-4">
+        <div class="shadow-sm rounded p-5 ">
+            <h3><span style="font-weight: lighter;">Welcome to your dashboard,&nbsp;</span>{{request.user.username}}</h3>
+            
+        </div>
+        <p class="my-3 spaced">Demographics</p>
+        <div class="d-flex align-items-center">
+            <div class="linear-gradient-1 text-light px-4 py-2 mr rounded">
+                <h3>{{total}}</h3>
+                <span>Total number of cars</span>
+            </div>
+            <div class="linear-gradient-2 text-light px-4 py-2 mr rounded">
+                <h3>{{sold}}</h3>
+                <span>Car(s) booked</span>
+            </div>
+            <div class="linear-gradient-1 text-light px-4 py-2 mr rounded">
+                <h3>{{instock}}</h3>
+                <span>Car(s) Available</span>
+            </div>
+        </div>
+        {% if messages %}
+        {% for msg in messages %}
+        <p class="text-danger mt-5">
+            {{msg}}
+        </p>
+        {% endfor %}
+        {% endif %}
+    </div>
+    <!-- end main  -->
+{% include "modal.html" %}
+{% endblock content %}

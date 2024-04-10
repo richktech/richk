@@ -1,0 +1,30 @@
+{% load static %}
+<div style="height: 100%;" class="shadow p-4 rounded d-flex flex-column align-items-center">
+    <img style="transform: scale(.7,.7);" src="{% static 'svgs/user.svg' %}" alt="">
+    <b class="my-2">{{request.user.email}}</b>
+    <p class="mb-3 mt-3">Sytem Administrator</p>
+    <div class="mt-4">
+        <a href="{% url 'admin-page' %}" class="nav-link">
+            <div class="d-flex align-items-center">
+                <img class="icon mr" src="{% static 'svgs/gauge.svg' %}" alt="">
+                <span>Dashboard</span>
+            </div>
+        </a>
+        <div type="button" data-bs-toggle="modal" data-bs-target="#exampleModal" class="mt-4 d-flex align-items-center">
+            <img class="icon mr" src="{% static 'svgs/car.svg' %}" alt="">
+            <span>Add a vehicle</span>
+        </div>
+        <a href="{% url 'orders-page' %}" class="nav-link">
+            <div class="mt-4 d-flex align-items-center">
+                <img class="icon mr" src="{% static 'svgs/trail.svg' %}" alt="">
+                <span>View orders</span>
+            </div>
+        </a>
+        <a href="{% url 'history-page' %}" class="nav-link">
+            <div class="mt-4 d-flex align-items-center">
+                <img class="icon mr" src="{% static 'svgs/book.svg' %}" alt="">
+                <span>Order History</span>
+            </div>
+        </a>
+    </div>
+</div>

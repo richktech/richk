@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="62" height="62" viewBox="0 0 62 62">
+  <defs>
+    <filter id="Path_9" x="0" y="0" width="62" height="62" filterUnits="userSpaceOnUse">
+      <feOffset dy="3" input="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="3" result="blur"/>
+      <feFlood flood-opacity="0.271"/>
+      <feComposite operator="in" in2="blur"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+  </defs>
+  <g id="Group_20" data-name="Group 20" transform="translate(-214 -955)">
+    <g transform="matrix(1, 0, 0, 1, 214, 955)" filter="url(#Path_9)">
+      <path id="Path_9-2" data-name="Path 9" d="M22,0A22,22,0,1,1,0,22,22,22,0,0,1,22,0Z" transform="translate(9 6)" fill="#fff"/>
+    </g>
+    <path id="youtube" d="M41.387,66.972A3.4,3.4,0,0,0,39,64.568C36.891,64,28.442,64,28.442,64s-8.449,0-10.556.568a3.4,3.4,0,0,0-2.389,2.4,38.224,38.224,0,0,0,0,13.091,3.344,3.344,0,0,0,2.389,2.366C19.993,83,28.442,83,28.442,83S36.891,83,39,82.429a3.344,3.344,0,0,0,2.389-2.366,38.224,38.224,0,0,0,0-13.091ZM25.679,77.535V69.5l7.062,4.017-7.062,4.017Z" transform="translate(216.558 909.501)" fill="#f12835"/>
+  </g>
+</svg>

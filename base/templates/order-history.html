@@ -1,0 +1,46 @@
+{% extends "layout.html" %}
+{% load humanize %}
+{% block content %}
+
+{% include 'navbar.html' %}
+<div class="container mt-5">
+    <u class="mb-4">Order History</u>
+    {% if orders %}
+    <table class="w-100">
+        <tr style="background-color: black" class=" text-light border-0">
+            <td class="py-3 px-4">Cars</td>
+            <td>Total price</td>
+            <td>Date</td>
+            <td class="text-center">status</td>
+        </tr>
+
+        <!-- order history  -->
+        {% for order in orders %}
+        <tr class="bg-pale border-0">
+            <td class="py-3 px-4">
+                {% for car in order.cars %}
+                {{car}},
+                {% endfor %}
+            </td>
+            <td>UGX {{order.total|intcomma}}</td>
+            <td>ordered {{order.date|timesince}} ago</td>
+            <td class="
+            {% if order.status == 'approved'%}
+            bg-success
+            {% elif order.status == 'rejected' %}
+            bg-danger
+            {% else %}
+            bg-secondary
+            {% endif %}
+            text-light text-center">
+                {{order.status}}
+            </td>
+        </tr>
+        {% endfor %}
+        <!-- end order history  -->
+    </table>
+    {% else %}
+    <h3>You donot have any orders</h3>
+    {% endif %}
+</div>
+{% endblock content %}
